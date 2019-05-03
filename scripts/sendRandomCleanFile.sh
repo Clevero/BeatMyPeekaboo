@@ -2,6 +2,7 @@
 
 
 TYPE=$1
+RECIPIENT="testuser@domain.tld"
 
 RND_NAME=$(pwgen 6 1);
 echo $(pwgen 1024 1) > $RND_NAME.txt
@@ -16,6 +17,6 @@ else
         exit 1;
 fi
 
-swaks --to marcel.caspar@sittig.de --tls --attach-type $SAMPLE_MIME_TYPE --attach $RND_NAME.$TYPE --suppress-data
+swaks --to $RECIPIENT --tls --attach-type $SAMPLE_MIME_TYPE --attach $RND_NAME.$TYPE --suppress-data
 rm $RND_NAME.$TYPE
 rm $RND_NAME.txt
